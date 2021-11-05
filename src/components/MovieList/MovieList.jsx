@@ -20,6 +20,7 @@ function MovieList() {
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>
+
                         </div>
                     );
                 })}
