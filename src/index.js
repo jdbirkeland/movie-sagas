@@ -29,6 +29,7 @@ function* fetchAllMovies() {
         
 }
 
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -52,11 +53,31 @@ const genres = (state = [], action) => {
     }
 }
 
+const details = (state = [], action) => {
+    switch (action.type) {
+        case 'FETCH_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+
+const selectedMovie = (state = [], action) => {
+    switch (action.type) {
+      case 'SET_SELECTED_MOVIE':
+        return state;
+      default:
+        return state;
+    }
+  }
+  
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        selectedMovie,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
