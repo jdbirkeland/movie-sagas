@@ -37,7 +37,9 @@ const sagaMiddleware = createSagaMiddleware();
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
+            console.log(action.payload)
             return action.payload;
+
         default:
             return state;
     }
@@ -63,10 +65,11 @@ const details = (state = [], action) => {
 }
 
 
-const selectedMovie = (state = [], action) => {
+const selectedMovie = (state = {}, action) => {
     switch (action.type) {
       case 'SET_SELECTED_MOVIE':
-        return state;
+        console.log(action.payload)
+        return action.payload;
       default:
         return state;
     }

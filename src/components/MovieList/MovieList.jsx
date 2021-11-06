@@ -11,8 +11,10 @@ function MovieList() {
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
 
-    const handleSelectMovie = ({movie}) => {
-        dispatch({type: 'SET_SELECTED_MOVIE', payload: movie})
+    const handleSelectMovie = (id) => {
+        dispatch({
+            type: 'SET_SELECTED_MOVIE', 
+            payload: id})
         history.push('/details');
     };
 
@@ -28,7 +30,7 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} onClick={() => handleSelectMovie(movie)}/>
+                            <img src={movie.poster} alt={movie.title} onClick={() => handleSelectMovie(movie.id)}/>
                             {/* <MovieItem key = {movie.id} movie={movie} /> */}
 
 
