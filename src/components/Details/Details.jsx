@@ -6,28 +6,33 @@ import { useHistory } from 'react-router';
 function Details() {
 
     const dispatch = useDispatch();
-    const movies = useSelector((store) => store.movies);
+    const movie = useSelector((store) => store.selectedMovie);
     const history = useHistory();
-    console.log(movies);
+    const genre = useSelector((store) => store.genres);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_DETAILS' });
+        // dispatch({ type: 'FETCH_DETAILS' });
     }, []);
 
-console.log(movies[3].description);
+    // console.log(movies[3].description);
+    // console.log(movies);
     return (
         <section>
             <h1>Test</h1>
             {
-                movies.description ? (
-                    <>
-                        <h2>{movies.movie.description}</h2>
-                        <p>Movie Description: {movies.movie.description}</p>
-                    </>
-                ) : (
-                    <p>No Movies Selected</p>
-                )
+
+                <>
+                    <div>
+                        <h2>{movie.title}</h2>
+                        <img src={movie.poster} />
+                        <p>Movie Description: {movie.description}</p>
+                    </div>
+                    <p>Genres: <span>{genres.map(genre => genre.name}.join(',')</span></p>
+                </>
+
             }
+
+            <button>Back to List</button>
         </section>
     );
 }

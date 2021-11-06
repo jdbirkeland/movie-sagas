@@ -1,22 +1,33 @@
 import { useDispatch } from "react-redux";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
-function MovieItem ({movie}) {
+function MovieItem({ movie }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleSelectMovie = ({movies}) => {
-        dispatch({type: 'SET_SELECTED_MOVIE', payload: movie})
+    const handleSelectMovie = () => {
+        dispatch({
+            type: 'SET_SELECTED_MOVIE',
+            payload: movie
+        })
+        dispatch({
+            type: 'FETCH_GENRES',
+            payload: movie
+        })
         history.push('/details');
     };
 
     return (
         // <h2>TEST</h2>
-        <li key={movie.id} onClick={() => handleSelectMovie(movie)} >
-            Movie Description: {movie.description}
-            </li>
-        );
+        <>
+            <h1 key={movie.id}></h1>
+            <h3>{movie.title}</h3>
+            <img scr={movie.poster}
+                alt={movie.title}
+                onClick={handleSelectMovie} />
+        </>
+    );
 }
 
 export default MovieItem;
