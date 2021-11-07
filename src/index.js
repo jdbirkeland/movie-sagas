@@ -15,7 +15,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRES', fetchAllGenres);
-
+    yield takeEvery('ADD_MOVIE', addMovie);
 }
 
 function* fetchAllGenres(action) {
@@ -58,6 +58,18 @@ const movies = (state = [], action) => {
             return state;
     }
 }
+//used to store movie added
+const addMovie = (state = [], action) => {
+    switch (action.type) {
+        case 'ADD_MOVIE':
+            console.log(action.payload)
+            return action.payload;
+
+        default:
+            return state;
+    }
+}
+
 
 // Used to store the movie genres
 const genres = (state = [], action) => {
@@ -95,6 +107,7 @@ const storeInstance = createStore(
         movies,
         genres,
         selectedMovie,
+        addMovie,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

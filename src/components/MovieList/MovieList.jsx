@@ -23,6 +23,10 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    const handleAddMoviePage = () => {
+        history.push("/addMovie");
+    };
+
 
     return (
         <main>
@@ -31,7 +35,7 @@ function MovieList() {
                 {movies.map(movie => (
                     <MovieItem key={movie.id} movie={movie} />
                 ))}
-                <button>ADD MOVIE PAGE</button>
+                <button onClick={handleAddMoviePage}>ADD MOVIE PAGE</button>
             </section>
         </main>
 
