@@ -2,6 +2,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { useState } from "react";
+import { useEffect } from 'react';
+
 
 
 function AddMovie() {
@@ -10,6 +12,9 @@ function AddMovie() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GENRES'});
+    }, []);
 
     // axios.post('/api/movie/POST', { movie })
     //     .then(response => {
@@ -26,15 +31,15 @@ function AddMovie() {
         history.push('/');
     }
 
-    // const handleTitleChange = (event, property) => {
-    //     setMovie({ ...movie, [property]: event.target.value })
-    // }
+    const handleTitleChange = (event, property) => {
+        setMovie({ ...movie, [property]: event.target.value })
+}
 
     //Adding New Movie
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('Adding Movie', title, poster, description);
-        dispatch({ type: 'ADD_MOVIE', payload: { title, poster, description } });
+        dispatch({ type: 'ADD_MOVIE', payload: movie });
 
     };
 
@@ -44,19 +49,22 @@ function AddMovie() {
                 <form onSubmit={handleSubmit} className="add-movie-form">
                     <input
                         required
+                        type = "text"
                         placeholder="Movie Title"
                         value={movie.title}
-                        onChange={(event) => setMovie(event.target.value)} />
+                        onChange={(event) => handleTitleChange(event, 'title')} />
                     <input
                         required
+                        type = "text"
                         placeholder="Poster URL"
                         value={movie.poster}
-                        onChange={(event) => setMovie(event.target.value)} />
+                        onChange={(event) => handleTitleChange(event, 'poster')} />
                     <input
                         required
+                        type = "text"
                         placeholder="Description"
                         value={movie.description}
-                        onChange={(event) => setMovie(event.target.value)} />
+                        onChange={(event) => handleTitleChange(event, 'description')} />
 
                     <button type="submit">
                         Add New Movie

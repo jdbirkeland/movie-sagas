@@ -19,9 +19,21 @@ WHERE movies.id = $1;`;
 });
 
 
-router.get('/', (req, res) => {
+router.get('/all', (req, res) => {
+  const query = `SELECT genres.name FROM genres;`;
+  pool.query(query)
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all movies', err);
+      res.sendStatus(500)
+    })
+
   // Add query to get all genres
   res.sendStatus(500)
 });
+
+
 
 module.exports = router;
