@@ -32,11 +32,11 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
+            <button className="addMovieButton" variant="contained" onClick={handleAddMoviePage}>ADD MOVIE PAGE</button>
             <section className="movies">
                 {movies.map(movie => (
                     <MovieItem key={movie.id} movie={movie} />
                 ))}
-                <button className="addMovieButton" variant="contained" onClick={handleAddMoviePage}>ADD MOVIE PAGE</button>
             </section>
         </main>
 
