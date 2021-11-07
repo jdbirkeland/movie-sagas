@@ -39,8 +39,16 @@ function* fetchAllMovies() {
 
     } catch {
         console.log('get all error');
+    }    
+}
+
+function* addMovie(action) {
+    try{
+        yield axios.post('api/movie', action.payload);
+        yield put ({yield: 'FETCH_MOVIES'});
+    } catch(err){
+        console.log('error in the POST, err');
     }
-        
 }
 
 
@@ -59,7 +67,7 @@ const movies = (state = [], action) => {
     }
 }
 //used to store movie added
-const addMovie = (state = [], action) => {
+const addNewMovie = (state = [], action) => {
     switch (action.type) {
         case 'ADD_MOVIE':
             console.log(action.payload)

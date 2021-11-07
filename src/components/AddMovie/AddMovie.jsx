@@ -38,7 +38,7 @@ function AddMovie() {
     //Adding New Movie
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Adding Movie', title, poster, description);
+        console.log('Adding Movie', 'title, poster, description');
         dispatch({ type: 'ADD_MOVIE', payload: movie });
 
     };
