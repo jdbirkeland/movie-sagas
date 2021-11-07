@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import MovieItem from '../MovieItem/MovieItem';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
 
 function Details() {
 
@@ -34,7 +37,7 @@ function Details() {
 
             
 
-            <button type="button" onClick={handleBackToList}>Back to List</button>
+            <button variant="outlined" type="button" onClick={handleBackToList}>Back to List</button>
             </>
     );
 }

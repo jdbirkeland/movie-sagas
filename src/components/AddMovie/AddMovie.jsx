@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { useState } from "react";
 import { useEffect } from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 
@@ -66,11 +68,11 @@ function AddMovie() {
                         value={movie.description}
                         onChange={(event) => handleTitleChange(event, 'description')} />
 
-                    <button type="submit">
+                    <button variant="contained" color="success" type="submit">
                         Add New Movie
                     </button>
                 </form>
-                <button type="submit" onClick={backToHome}>
+                <button variant="contained" color="success" type="submit" onClick={backToHome}>
                         Back to Home Page
                     </button>
 

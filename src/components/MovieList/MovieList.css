@@ -2,3 +2,13 @@
     display : flex;
     flex-wrap: wrap;
 }
+
+.addMovieButton {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    display: grid;
+    color: royalblue;
+    height: 20px;
+    width: 150px;
+}

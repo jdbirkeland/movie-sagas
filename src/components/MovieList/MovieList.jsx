@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import './MovieList.css'
 import MovieItem from '../MovieItem/MovieItem.jsx'
 import Details from '../Details/Details';
+import Button from '@mui/material/Button';
 
 
 function MovieList() {
@@ -35,7 +36,7 @@ function MovieList() {
                 {movies.map(movie => (
                     <MovieItem key={movie.id} movie={movie} />
                 ))}
-                <button onClick={handleAddMoviePage}>ADD MOVIE PAGE</button>
+                <button className="addMovieButton" variant="contained" onClick={handleAddMoviePage}>ADD MOVIE PAGE</button>
             </section>
         </main>
 
