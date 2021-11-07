@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import './MovieList.css'
 import MovieItem from '../MovieItem/MovieItem.jsx'
+import Details from '../Details/Details';
 
 
 function MovieList() {

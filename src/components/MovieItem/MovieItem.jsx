@@ -16,16 +16,19 @@ function MovieItem({ movie }) {
             payload: movie
         })
         history.push('/details');
+        
     };
 
     return (
         // <h2>TEST</h2>
         <>
-            <h1 key={movie.id}></h1>
-            <h3>{movie.title}</h3>
-            <img scr={movie.poster}
-                alt={movie.title}
-                onClick={handleSelectMovie} />
+            <div>
+                <h1 key={movie.id}></h1>
+                <h3>{movie.title}</h3>
+                <img src={movie.poster}
+                    alt={movie.title}
+                    onClick={handleSelectMovie} />
+            </div>
         </>
     );
 }
