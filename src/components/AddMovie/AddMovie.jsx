@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { useState } from "react";
 import { useEffect } from 'react';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 
@@ -61,20 +60,20 @@ function AddMovie() {
                         placeholder="Poster URL"
                         value={movie.poster}
                         onChange={(event) => handleTitleChange(event, 'poster')} />
-                    <input
+                    <textarea
                         required
                         type = "text"
                         placeholder="Description"
                         value={movie.description}
                         onChange={(event) => handleTitleChange(event, 'description')} />
 
-                    <button variant="contained" color="success" type="submit">
+                    <Button variant="contained" color="success" type="submit">
                         Add New Movie
-                    </button>
+                    </Button>
                 </form>
-                <button variant="contained" color="success" type="submit" onClick={backToHome}>
+                <Button variant="contained" color="success" type="submit" onClick={backToHome}>
                         Back to Home Page
-                    </button>
+                    </Button>
 
             </section>
         );
