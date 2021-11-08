@@ -60,7 +60,7 @@ function AddMovie() {
                         placeholder="Poster URL"
                         value={movie.poster}
                         onChange={(event) => handleTitleChange(event, 'poster')} />
-                    <textarea
+                    <textarea 
                         required
                         type = "text"
                         placeholder="Description"
